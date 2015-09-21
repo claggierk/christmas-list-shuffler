@@ -40,7 +40,7 @@ def ShuffleCouples(couples):
 			break
 	print " ## INFO: Couples shuffled."
 	return shuffled_couples
-	
+
 def ExtractIndividuals(individual_filename):
 	file_handler = open(individual_filename, 'r')
 	names = []
@@ -52,20 +52,20 @@ def ExtractIndividuals(individual_filename):
 
 def SeparateFamilies(names):
 	families = {}
-	
+
 	for name in names:
-		last_name = name.split(" ")[1] 
+		last_name = name.split(" ")[1]
 		if last_name not in families.keys():
 			families[last_name] = []
 		families[last_name].append(name)
-	
+
 	return families
 
 def ShuffleIndividuals(individuals):
 	print " ## INFO: Shuffling individuals..."
 	shuffled_individuals = {}
 	families = SeparateFamilies(individuals)
-	
+
 	while True:
 		shuffled_individuals.clear()
 		for individual in individuals:
@@ -95,7 +95,7 @@ def ShuffleIndividuals(individuals):
 
 	print " ## INFO: Individuals shuffled."
 	return shuffled_individuals
-	
+
 def GenerateListOfAvailableCousins(grandkid, families, last_names, already_receiving_a_gift):
 	available_cousins_to_give_to = []
 	current_last_name = grandkid[1]
@@ -132,14 +132,14 @@ def main():
 	couples_filename = sys.argv[1]
 	individuals_filename = sys.argv[2]
 	output_filename = sys.argv[3]
-	
+
 	couples = ExtractCouples(couples_filename)
 	shuffled_couples = ShuffleCouples(couples)
-	
+
 	individuals = ExtractIndividuals(individuals_filename)
 	shuffled_individuals = ShuffleIndividuals(individuals)
-	
+
 	OutputFile(output_filename, shuffled_couples, shuffled_individuals)
-	
+
 if __name__ == "__main__":
 	main()
