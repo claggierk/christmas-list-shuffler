@@ -104,7 +104,6 @@ function shuffle() {
     var givingPeople = organizePeople(giving);
     var notReceivedPeople = organizePeople(giving);
 
-    console.log(notReceivedPeople);
     if(Object.keys(notReceivedPeople).length == 1) {
       console.log("cannot shuffle without at least two families...");
       break;
