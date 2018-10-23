@@ -54,6 +54,7 @@ def SeparateFamilies(names):
 	families = {}
 
 	for name in names:
+		print name
 		last_name = name.split(" ")[1]
 		if last_name not in families.keys():
 			families[last_name] = []
@@ -115,7 +116,7 @@ def OutputFile(file_name, shuffled_couples, shuffled_individuals):
 		output_html_file_handler.write("%s give to %s\n" % (gifter, shuffled_couples[gifter]))
 	output_html_file_handler.write("**********************************************\n")
 	for gifter in shuffled_individuals:
-		output_html_file_handler.write("%s give to %s\n" % (gifter, shuffled_individuals[gifter]))
+		output_html_file_handler.write("%s gives to %s\n" % (gifter, shuffled_individuals[gifter]))
 	output_html_file_handler.write("**********************************************\n")
 	#output_html_file_handler.write("<img src=\"callChristmasListGenerator.pl\" border=0 height=0 width=0><br>\n")
 	output_html_file_handler.close()
